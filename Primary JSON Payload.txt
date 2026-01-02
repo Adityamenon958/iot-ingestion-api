@@ -1,0 +1,50 @@
+{
+  "gateway_id": "TRB245-EDM-01",
+  "machine_id": "MAKINO-EDAF2-01",
+  "machine_type": "Sinker EDM",
+  "timestamp_utc": "2026-01-02T08:45:30Z",
+  "data_source": "OPC_UA",
+  "parameters": [
+    {
+      "tag": "machine_state",
+      "category": "Machine Status",
+      "value": "RUNNING",
+      "data_type": "ENUM",
+      "priority": "HIGH",
+      "section": "OEE"
+    },
+    {
+      "tag": "current_process_stage",
+      "category": "Machine Status",
+      "value": "ROUGH",
+      "data_type": "ENUM",
+      "priority": "MEDIUM",
+      "section": "OEE"
+    },
+    {
+      "tag": "program_name",
+      "category": "Program",
+      "value": "EDM_CAVITY_A",
+      "data_type": "STRING",
+      "priority": "MEDIUM",
+      "section": "Traceability"
+    },
+    {
+      "tag": "program_o_number",
+      "category": "Program",
+      "value": "O1234",
+      "data_type": "STRING",
+      "priority": "MEDIUM",
+      "section": "Traceability"
+    },
+    {
+      "tag": "effective_pulse",
+      "category": "Process",
+      "value": 12.75,
+      "data_type": "FLOAT",
+      "unit": "A",
+      "priority": "HIGH",
+      "section": "Quality"
+    }
+  ]
+}

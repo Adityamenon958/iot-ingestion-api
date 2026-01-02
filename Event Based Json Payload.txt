@@ -1,0 +1,25 @@
+{
+  "machine_id": "MAKINO-EDAF2-01",
+  "event_type": "PROGRAM_CHANGE",
+  "timestamp_utc": "2026-01-02T08:46:10Z",
+  "event_data": {
+    "program_name": "EDM_CAVITY_B",
+    "program_o_number": "O1250"
+  }
+}
+
+
+{
+  "machine_state_enum": {
+    "0": "STOP",
+    "1": "IDLE",
+    "2": "RUNNING",
+    "3": "ALARM"
+  },
+  "process_stage_enum": {
+    "1": "START",
+    "2": "ROUGH",
+    "3": "FINISH",
+    "4": "END"
+  }
+}

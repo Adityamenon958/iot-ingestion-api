@@ -1,0 +1,115 @@
+Primary Machine Data Payload:
+
+{
+  "schema_version": "1.0",
+  "msg_type": "telemetry",
+  "ts_utc": "$timestamp",
+  "asset": {
+    "machine_id": "EDAF2-01",
+    "model": "EDAF2",
+    "oem": "Makino",
+    "controller": "Hyper-i",
+    "gateway_id": "$device_id"
+  },
+  "tags": {
+    "machine": {
+      "state": "$OPCUA(Machine_State)",
+      "mode": "$OPCUA(Machine_Mode)"
+    },
+    "edm": {
+      "voltage_v": "$OPCUA(EDM_Voltage)",
+      "current_a": "$OPCUA(EDM_Current)",
+      "effective_pulse_pct": "$OPCUA(Effective_Pulse)"
+    }
+  }
+}
+
+
+Alarm Event Rule
+
+gsnedge/v1/Plant-1/Toolroom/EDAF2-01/event
+
+{
+  "schema_version": "1.0",
+  "msg_type": "event",
+  "event_type": "alarm",
+  "ts_utc": "$timestamp",
+  "asset": { "machine_id": "EDAF2-01" },
+  "event": {
+    "alarm": {
+      "code": "$OPCUA(Alarm_Code)",
+      "severity": "CRITICAL",
+      "state": "ACTIVE"
+    }
+  }
+}
+
+
+Json Body
+
+{
+  "schema_version": "1.0",
+  "msg_type": "event",
+  "event_type": "alarm",
+  "ts_utc": "2025-12-31T14:19:01.120Z",
+  "site": {
+    "name": "Plant-1",
+    "area": "Toolroom"
+  },
+  "asset": {
+    "machine_id": "EDAF2-01",
+    "model": "EDAF2"
+  },
+  "event": {
+    "alarm": {
+      "active_count": 1,
+      "code": 20341,
+      "severity": "CRITICAL",
+      "message": "Dielectric level low",
+      "source": "controller",
+      "state": "ACTIVE"
+    }
+  },
+  "context": {
+    "machine_state": 3,
+    "program_name": "EDM_JOB_023",
+    "o_number": "O0123"
+  }
+}
+
+
+Http Request
+
+{
+  "schema_version": "1.0",
+  "msg_type": "aggregate",
+  "window": {
+    "type": "tumbling",
+    "duration_s": 60,
+    "start_utc": "2025-12-31T14:18:00Z",
+    "end_utc": "2025-12-31T14:19:00Z"
+  },
+  "site": {
+    "name": "Plant-1",
+    "area": "Toolroom"
+  },
+  "asset": {
+    "machine_id": "EDAF2-01"
+  },
+  "kpi": {
+    "availability_pct": 92.3,
+    "performance_pct": 88.1,
+    "quality_pct": 99.0,
+    "oee_pct": 80.4
+  },
+  "time_buckets_s": {
+    "run": 52,
+    "idle": 6,
+    "stop": 2
+  },
+  "counts": {
+    "alarms": 0,
+    "stops": 1,
+    "job_changes": 0
+  }
+}
